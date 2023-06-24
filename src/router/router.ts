@@ -1,3 +1,4 @@
+import { ClientsComponent } from "../components/clients/clients";
 import { HomeComponent } from "../components/home/home";
 import { ServicesComponent } from "../components/services/services";
 
@@ -14,10 +15,16 @@ export class Router {
     void services.render();
   }
 
+  public handleClientsRoute (): void {
+    const clients = new ClientsComponent();
+    void clients.render();
+  }
+
   public configureRoutes (): void {
     const routes: RouteMap = {
       '/': this.handleHomeRoute,
-      '/services': this.handleServicesRoute
+      '/services': this.handleServicesRoute,
+      '/clients': this.handleClientsRoute
     };
 
     const currentUrl = window.location.pathname;

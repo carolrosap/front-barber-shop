@@ -1,54 +1,57 @@
-import template from './services.html';
+import template from './clients.html';
 import axios from 'axios';
 
-export class ServicesComponent {
+export class ClientsComponent {
 
   async render(): Promise<void> {
     const element = document.createElement('div');
-    element.classList.add('services');
+    element.classList.add('clients');
     element.insertAdjacentHTML('beforeend', template);
 
     const content = document.querySelector('#content');
     content?.appendChild(element);
 
-    await this.loadServices();
+    await this.loadClients();
   }
 
-  async getServicesApi() {
+  async getClientsApi() {
     try {
-      const response = await axios.get('http://localhost:3000/service');
+      const response = await axios.get('http://localhost:3000/client');
       return response.data;
     } catch (error) {
       console.log('error reading data from API');
     }
   }
 
-  async loadServices() {
-    const services = await this.getServicesApi();
-    const tableServices = document.querySelector('#table-services');
+  async loadClients() {
+    const clients = await this.getClientsApi();
+    const tableClients = document.querySelector('#table-clients');
 
-    services.forEach((service: any) => {
+    clients.forEach((client: any) => {
       const tbody = document.createElement('tbody');
       const tr = document.createElement('tr');
 
       const id = document.createElement('td');
       id.setAttribute('scope', 'row');
       const name = document.createElement('td');
-      const user = document.createElement('td');
+      const cpf = document.createElement('td');
+      const telephone = document.createElement('td');
       const actions = document.createElement('td');
 
-      id.textContent = service.id;
-      name.textContent = service.category.name;
-      user.textContent = service.user.name;
+      id.textContent = client.id;
+      name.textContent = client.name;
+      cpf.textContent = client.cpf;
+      telephone.textContent = client.telephone;
       actions.innerHTML = '<i class="fa-solid fa-pencil"></i><i class="fa-solid fa-trash"></i>'
 
       tr.appendChild(id);
       tr.appendChild(name);
-      tr.appendChild(user);
+      tr.appendChild(cpf);
+      tr.appendChild(telephone);
       tr.appendChild(actions);
 
       tbody.appendChild(tr);
-      tableServices?.appendChild(tbody);
+      tableClients?.appendChild(tbody);
     });
 
   }

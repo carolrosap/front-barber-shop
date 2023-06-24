@@ -14,17 +14,17 @@ module.exports = {
             {
                 test: /\.html$/,
                 use: [
-                  {
-                    loader: 'raw-loader',
-                  },
+                    {
+                        loader: 'raw-loader',
+                    },
                 ]
             },
             {
                 test: /\.scss$/,
                 use: [
-                  'style-loader',
-                  'css-loader',
-                  'sass-loader'
+                    'style-loader',
+                    'css-loader',
+                    'sass-loader'
                 ]
             },
             {
@@ -59,4 +59,9 @@ module.exports = {
     optimization: {
         minimize: true,
     },
+    performance: {
+        maxAssetSize: 1000000, 
+        maxEntrypointSize: 500000, 
+        hints: false     
+    }
 };
