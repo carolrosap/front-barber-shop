@@ -1,0 +1,17 @@
+.home {
+    
+
+    &__banner {
+        
+        background-image: url(/public/assets/img/background.jpg);
+        background-size: cover;
+        background-position: center;
+        height: 100vh;
+
+        @media screen and (max-width: 767px) {
+            background-image: url(/public/assets/img/background-2.jpg);
+        }
+    }
+
+    
+}
