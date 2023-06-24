@@ -19,5 +19,6 @@
     "src/components/home/home.d.ts",
     "src/components/services/services.d.ts",
     "src/components/clients/clients.d.ts",
+    "src/components/schedules/schedules.d.ts",
   ]
 }
