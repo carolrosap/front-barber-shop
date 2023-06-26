@@ -1,6 +1,7 @@
 import { ClientsComponent } from "../components/clients/clients";
 import { HomeComponent } from "../components/home/home";
 import { SchedulesComponent } from "../components/schedules/schedules";
+import { SchedulingsComponent } from "../components/schedulings/schedulings";
 import { ServicesComponent } from "../components/services/services";
 
 type RouteHandler = () => void;
@@ -26,12 +27,18 @@ export class Router {
     void schedules.render();
   }
 
+  public handleSchedulingsRoute (): void {
+    const schedulings = new SchedulingsComponent();
+    void schedulings.render();
+  }
+
   public configureRoutes (): void {
     const routes: RouteMap = {
       '/': this.handleHomeRoute,
       '/services': this.handleServicesRoute,
       '/clients': this.handleClientsRoute,
-      '/schedules': this.handleSchedulesRoute
+      '/schedules': this.handleSchedulesRoute,
+      '/schedulings': this.handleSchedulingsRoute
     };
 
     const currentUrl = window.location.pathname;
