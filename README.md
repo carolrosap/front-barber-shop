@@ -1,6 +1,6 @@
-# Basic front-end boilerplate
+# Front-end Barbearia
 
-## How to start the project: ##
+## Como rodar o projeto: ##
 
 npm i <br>
 npm run build <br>
@@ -12,5 +12,10 @@ npm i <br>
 npx webpack <br>
 npx webpack serve --open
 
+Necessário ter o back-end rodando localmente na porta 3000
+
 ## How to run lint using eslint: ##
 npm run lint
+
+## How to run tests: ##
+npm tests
