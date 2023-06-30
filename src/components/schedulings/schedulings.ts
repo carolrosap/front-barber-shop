@@ -28,6 +28,7 @@ export class SchedulingsComponent {
     const tableSchedulings = document.querySelector('#table-schedulings');
 
     schedulings.forEach((scheduling: any) => {
+      console.log(scheduling);
       const tbody = document.createElement('tbody');
       const tr = document.createElement('tr');
 
@@ -40,7 +41,7 @@ export class SchedulingsComponent {
       const professional = document.createElement('td');
       const actions = document.createElement('td');
 
-      const newDate =  this.formatDate(scheduling.schedule.date);
+      const newDate = this.formatDate(scheduling.schedule.date);
 
       id.textContent = scheduling.id;
       date.textContent = newDate;
@@ -48,7 +49,7 @@ export class SchedulingsComponent {
       service.textContent = scheduling.service.category.name;
       client.textContent = scheduling.client.name;
       professional.textContent = scheduling.service.professional.name;
-      
+
       actions.innerHTML = '<i class="fa-solid fa-pencil"></i><i class="fa-solid fa-trash"></i>'
 
       tr.appendChild(id);

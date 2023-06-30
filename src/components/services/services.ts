@@ -26,7 +26,6 @@ export class ServicesComponent {
   async loadServices() {
     const services = await this.getServicesApi();
     const tableServices = document.querySelector('#table-services');
-
     services.forEach((service: any) => {
       const tbody = document.createElement('tbody');
       const tr = document.createElement('tr');
@@ -39,7 +38,7 @@ export class ServicesComponent {
 
       id.textContent = service.id;
       name.textContent = service.category.name;
-      user.textContent = service.user.name;
+      user.textContent = service.professional.name;
       actions.innerHTML = '<i class="fa-solid fa-pencil"></i><i class="fa-solid fa-trash"></i>'
 
       tr.appendChild(id);
